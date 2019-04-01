@@ -4,9 +4,10 @@ import styles from '../views/SearchResult.module.css';
 class SearchResult extends Component {
     render() {
         return (
-            // typed my html here
+            /* typed my html here*/
+            
             <div className={styles.all}>
-            //Navbar with searchbar and logo
+            
                 <nav> 
                     <div className={styles.row}>
                         <ul className={styles.nav}> 
@@ -18,6 +19,7 @@ class SearchResult extends Component {
                                 className={styles.smallSearch} 
                                 placeholder='location' 
                                 /> 
+                                
                             </li>
                             <li className={styles.navlist}className={styles.navInput}> 
                                 <input 
@@ -37,10 +39,10 @@ class SearchResult extends Component {
 
                 
 
-                //Results for text
+                
                 <p className={styles.p}>Result for ‘Burger’, ‘Uttara’</p>
 
-                //Filter Block
+                {/*Filter Block*/}
                 
                 <section>
                     <div className={styles.filterBlock}>
@@ -99,7 +101,7 @@ class SearchResult extends Component {
                     </div>
                 </section>
 
-            //Restaurant Block	
+            {/*Restaurant Block */}	
                 <div className={styles.Restaurants}>
 
                     <div className={styles.resBlock}>
@@ -201,7 +203,7 @@ class SearchResult extends Component {
                 </div>
 
                 
-                    
+                {/*Sidebar */}    
                 <div className={styles.nearbyBlock}>
                     Nearby Restaurants in Uttara
                     <div className={styles.nearby}>
