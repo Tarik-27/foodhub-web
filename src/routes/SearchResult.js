@@ -104,7 +104,7 @@ class SearchResult extends Component {
 
                     <div className={styles.resBlock}>
                         <div className={styles.left}>
-                            <img className={styles.resImg} src={require('/images/css/Takeout.jpg')}/>
+                            <img className={styles.resImg} src='/images/css/Takeout.jpg'/>
                         </div>
                         <div className={styles.right}>
                             <div className={styles.large}>Takeout</div>
@@ -137,7 +137,7 @@ class SearchResult extends Component {
 
                     <div className={styles.resBlock}>
                         <div className={styles.left}>
-                            <img className={styles.resImg} src={require('/images/css/Takeout.jpg')}/>
+                            <img className={styles.resImg} src='/images/css/Takeout.jpg'/>
                         </div>
                         <div className={styles.right}>
                             <div className={styles.large}>Takeout</div>
@@ -168,7 +168,7 @@ class SearchResult extends Component {
 
                     <div className={styles.resBlock}>
                         <div className={styles.left}>
-                            <img className={styles.resImg} src={require('/images/css/Takeout.jpg')}/>
+                            <img className={styles.resImg} src='/images/css/Takeout.jpg'/>
                         </div>
                         <div className={styles.right}>
                             <div className={styles.large}>Takeout</div>
@@ -205,22 +205,22 @@ class SearchResult extends Component {
                 <div className={styles.nearbyBlock}>
                     Nearby Restaurants in Uttara
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Madchef</h5> 
                         <h6>Sector 13</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Khana's</h5>
                         <h6>Sector 13</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Mr.Manik</h5>
                         <h6>Sector 13</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Mumins Foods</h5>
                         <h6>Sector 13</h6>
                     </div>
@@ -229,22 +229,22 @@ class SearchResult extends Component {
                 <div className={styles.featuredBlock}>
                     Featured Restaurants
                     <div className={styles.nearby}>
-                    <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                    <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Madchef</h5>
                         <h6>Uttara</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Khana's</h5>
                         <h6>Banani</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Mr.Manik</h5>
                         <h6>Dhanmondi</h6>
                     </div>
                     <div className={styles.nearby}>
-                        <img classname={styles.divImg} src={require('/images/css/Madchef.jpg')}/>
+                        <img classname={styles.divImg} src='/images/css/Madchef.jpg'/>
                         <h5>Mumins Foods</h5>
                         <h6>Mirpur</h6>
                     </div>
