@@ -250,19 +250,14 @@
 	left: 970px;
 	border-radius: 5px;
 	margin: 0px 40px;
-	padding: 20px 40px;
+	padding: 20px 30px;
 	
 
 }
 
-.nearbyImg{
+.divImg{
 	height: 100px;
 	width: 100px;
-}
-
-.featuredImg{
-	height: 95px;
-	width: 95px;
 }
 
 .nearby{

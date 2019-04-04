@@ -334,7 +334,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.nearbyImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Madchef</h5>
@@ -343,7 +343,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.nearbyImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Khana's</h5>
@@ -352,7 +352,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.nearbyImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Mr.Manik</h5>
@@ -361,7 +361,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.nearbyImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Mumins Foods</h5>
@@ -374,7 +374,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.featuredImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Madchef</h5>
@@ -383,7 +383,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.featuredImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Khana's</h5>
@@ -392,7 +392,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.featuredImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Mr.Manik</h5>
@@ -401,7 +401,7 @@ class SearchResult extends Component {
                     <div className={styles.nearby}>
                         <img
                             alt=''
-                            className={styles.featuredImg}
+                            className={styles.divImg}
                             src='/images/css/Madchef.jpg'
                         />
                         <h5>Mumins Foods</h5>
