@@ -1,106 +1,61 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { RestaurantCard } from '../components/RestaurantCard';
+import { ResBox } from '../components/ResBox';
+import { api } from '../utils/api';
 import styles from '../views/SearchResult.module.css';
 
 class SearchResult extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            list: [],
+            listLoading: false
+        };
+    }
+
+    componentDidMount() {
+        this.fetchRestaurants();
+    }
+
+    async fetchRestaurants() {
+        this.setState({ listLoading: true });
+        const { area, food } = this.props.location.state;
+        console.log(area, food);
+        const params = {
+            food,
+            area
+        };
+
+        try {
+            const response = await axios.get(api.searchRestaurant, { params });
+            console.log(response.data);
+            this.setState({ list: response.data.data, listLoading: false });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    renderRestaurantsList() {
+        if (this.state.listLoading) {
+            return <h1 style={{ textAlign: 'center' }}>Loading</h1>;
+        }
+        return this.state.list.map(item => (
+            <RestaurantCard
+                key={item._id}
+                name={item.name}
+                address={`${item.address.area}, ${item.address.district}`}
+                rating={item.review.average}
+                banner_image={item.banner_image}
+            />
+        ));
+    }
+
     render() {
         return (
             <div className={styles.all}>
-                <nav>
-                    <div className={styles.row}>
-                        <ul className={styles.nav}>
-                            <Link
-                                className={`${styles.btn} ${styles.navlist}`}
-                                to='/'
-                            >
-                                {' '}
-                                <i className='fa fa-search' />{' '}
-                            </Link>
-                            <li
-                                className={`${styles.navlist} ${
-                                    styles.navInput
-                                }`}
-                            >
-                                <input
-                                    type='text'
-                                    name='location'
-                                    className={styles.smallSearch}
-                                    placeholder='location'
-                                />
-                            </li>
-                            <li
-                                className={`${styles.navlist} ${
-                                    styles.navInput
-                                }`}
-                            >
-                                <input
-                                    type='text'
-                                    name='search by food'
-                                    className={styles.bigSearch}
-                                    placeholder='search by food'
-                                />
-                            </li>
-                            <li className={styles.navlist}>
-                                {' '}
-                                <Link
-                                    className={`${styles.navlink} ${
-                                        styles.navlistlink
-                                    }`}
-                                    to='/'
-                                >
-                                    Sign in
-                                </Link>
-                            </li>
-                            <li className={styles.navlist}>
-                                {' '}
-                                <Link
-                                    className={`${styles.navlink} ${
-                                        styles.navlistlink
-                                    }`}
-                                    to='/'
-                                >
-                                    Blog
-                                </Link>
-
-                            </li>
-
-                            <li className={styles.navlist}>
-                                {' '}
-                                <Link
-                                    className={`${styles.navlink} ${
-                                        styles.navlistlink
-                                    }`}
-                                    to='/'
-                                >
-                                    Food Photography
-                                </Link>
-                            </li>
-                            <li className={styles.navlist}>
-                                {' '}
-                                <Link
-                                    className={`${styles.navlink} ${
-                                        styles.navlistlink
-                                    }`}
-                                    to='/'
-                                >
-                                    About us
-                                </Link>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </nav>
-                <div
-                    id='main'
-                    style={{
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        width: 1140,
-                        paddingTop: 30,
-                        paddingBottom: 30
-                    }}
-                >
+                <div id='main' style={inStyle.container}>
                     <section style={{ float: 'left', width: '25%' }}>
                         <div className={styles.filterBlock}>
                             <span className={styles.orange}>
@@ -216,100 +171,80 @@ class SearchResult extends Component {
                     </section>
                     {/*Restaurant Block */}
                     <div className={styles.Restaurants}>
-                        <RestaurantCard name='Takeout' />
-                        <RestaurantCard name='Chillox' />
-                        <RestaurantCard name='Mr. Manik' />
-                    </div> {/* res block end */}
+                        {this.renderRestaurantsList()}
+                    </div>{' '}
+                    {/* res block end */}
                     {/*Sidebar */}
                     <div style={{ float: 'left', width: '25%' }}>
                         <div className={styles.sideBlock}>
-                            <p style={{ marginBottom: 10 }}>Nearby Restaurants</p>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Madchef</h5>
-                                <h6>Sector 13</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Khana's</h5>
-                                <h6>Sector 13</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Mr.Manik</h5>
-                                <h6>Sector 13</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Mumins Foods</h5>
-                                <h6>Sector 13</h6>
-                            </div>
+                            <p style={{ marginBottom: 10 }}>
+                                Nearby Restaurants
+                            </p>
+                            <ResBox
+                                styles={styles}
+                                name='Mr. Manik'
+                                address='Uttara, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Takeout'
+                                address='Dhanmondi, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Chillox'
+                                address='Badda, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Khanas'
+                                address='Uttara, Dhaka'
+                            />
                         </div>
                         <div className={styles.sideBlock}>
-                            <p style={{ marginBottom: 10 }}>Featured Restaurants</p>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Madchef</h5>
-                                <h6>Uttara</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Khana's</h5>
-                                <h6>Banani</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Mr.Manik</h5>
-                                <h6>Dhanmondi</h6>
-                            </div>
-                            <div className={styles.nearby}>
-                                <img
-                                    alt=''
-                                    className={styles.divImg}
-                                    src='/images/css/Madchef.jpg'
-                                />
-                                <h5>Mumins Foods</h5>
-                                <h6>Mirpur</h6>
-                            </div>
-                            
+                            <p style={{ marginBottom: 10 }}>
+                                Featured Restaurants
+                            </p>
+                            <ResBox
+                                styles={styles}
+                                name='Mr. Manik'
+                                address='Uttara, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Takeout'
+                                address='Dhanmondi, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Chillox'
+                                address='Badda, Dhaka'
+                            />
+                            <ResBox
+                                styles={styles}
+                                name='Khanas'
+                                address='Uttara, Dhaka'
+                            />
                         </div>
                     </div>{' '}
                     {/* end of sidebar container */}
-                    
                 </div>{' '}
                 {/* end of main content block */}
-                <div style={{ clear: 'both' }} /> {/* IMPORTANT: DO NOT TAMPER */}
-            </div> /* End of container div */
+                <div style={{ clear: 'both' }} />{' '}
+                {/* IMPORTANT: DO NOT TAMPER */}
+            </div>
         );
     }
 }
+
+const inStyle = {
+    container: {
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        width: 1140,
+        paddingTop: 30,
+        paddingBottom: 30
+    }
+};
 
 export default SearchResult;
