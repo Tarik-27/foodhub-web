@@ -58,7 +58,10 @@
 
 .dropDown:hover .dropDownContent{
 	display: block;
-	background-color: #e67e22;
+	background-color: #eb9143;
+	border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+	
 }
 
 .navlink{
