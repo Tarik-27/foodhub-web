@@ -23,6 +23,7 @@
     font-family: 'Calibri Light';
 }
 
+
 .Cover{
     background-image: linear-gradient(rgba(255, 116, 2, 0.5), rgba(255, 115, 0, 0.5)),
         url('/images/css/FoodBlogCover.jpg');
@@ -45,7 +46,7 @@
 .add{
     position: relative;
     top: 100px;
-    left: 1250px;
+    left: 1350px;
     height: 50px;
     width: 50px;
     background-color: orange;
@@ -56,6 +57,7 @@
 
 .Middle{
     display: flex;
+
     
 }
 
@@ -68,9 +70,10 @@
 .blog{
     border: 2px solid #d9d9d9;
     width: 740px;
-    height: 700px;
+    height: auto;
     background-color: #f7f7f7;
     padding: 20px;
+    margin-bottom: 20px;
     
 }
 
@@ -81,6 +84,11 @@
 
 .Author{
     display: flex;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
     
 }
 
@@ -96,15 +104,52 @@
 }
 
 .icon{
-    margin: 5px;
+    margin: 8px;
     border: 1px solid #ED7D31;
     border-radius: 2px;
     height: 25px;
     padding: 3px;
 }
 
+.article{
+    margin-top: 20px; 
+}
+
+
+
 .middleRight{
     flex: 2;
     margin-left: 30px;
+    margin-top: 30px;
+    
 }
+
+.topBlog{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 5px;
+
+}
+
+.topImg{
+    width: auto;
+    height: 80px;
+    padding: 5px;
+
+}
+
+.topInfo{
+    padding: 5px;
+}
+
+.topAuthorImg{
+    margin-top: -3px;
+    height: 70px;
+    width: 70px;
+    border: 2px solid #d9d9d9;
+    border-radius: 50px;
+}
+
+
 
