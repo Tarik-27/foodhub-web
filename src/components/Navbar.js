@@ -119,7 +119,7 @@ class Navbar extends Component {
                             className={`${styles.navlink} ${
                                 styles.navlistlink
                             }`}
-                            to='/'
+                            to='/main/blog'
                         >
                             Blog
                         </Link>
