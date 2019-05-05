@@ -146,7 +146,9 @@ class Home extends React.Component {
             <header className={styles.header} style={{ position: 'relative' }}>
                 <nav>
                     <div className={styles.row}>
+                    <img  className={styles.logo} src='/images/css/homeLogo.png' />
                         <ul className={styles.mainNav}>
+                        
                             <li className={styles.mainNavList}>
                                 <Link to='/'>About us</Link>
                             </li>

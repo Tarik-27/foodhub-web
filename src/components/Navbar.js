@@ -108,6 +108,7 @@ class Navbar extends Component {
                     </ul>
                 </li>
                 
+                
             </div>
         );
     }
@@ -190,6 +191,13 @@ class Navbar extends Component {
                             About us
                         </Link>
                     </li>
+
+                    <div className={styles.logoBlock}>
+                        <img  className={styles.logo} src='/images/css/logo.png' />
+
+                    </div>
+
+                    
 
                     <div style={{ clear: 'both ' }} />
                 </ul>
