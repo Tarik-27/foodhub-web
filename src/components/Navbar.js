@@ -193,7 +193,10 @@ class Navbar extends Component {
                     </li>
 
                     <div className={styles.logoBlock}>
-                        <img  className={styles.logo} src='/images/css/logo.png' />
+                        <Link to='/'>
+                            <img  className={styles.logo} src='/images/css/logo.png' />
+                        </Link>
+                        
 
                     </div>
 
