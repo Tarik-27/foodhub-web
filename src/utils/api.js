@@ -1,6 +1,8 @@
 const baseURL = 'http://localhost:3000';
 
 export const api = {
+    createBlogPost: `${baseURL}/blog/create`,
+    getBlogList: `${baseURL}/blog`,
     searchRestaurant: `${baseURL}/restaurant/search`,
     createRestaurant: `${baseURL}/admin/restaurants/create`,
     deleteRestaurant: `${baseURL}/admin/restaurants/delete`,
@@ -10,5 +12,6 @@ export const api = {
     userRestaurant: `${baseURL}/restaurant/user`,
     updateRestaurant: (id) => `${baseURL}/admin/restaurants/update/${id}`,
     restaurantDetails: `${baseURL}/restaurant/details`,
-    login: `${baseURL}/auth/login`
+    login: `${baseURL}/auth/login`,
+    register: `${baseURL}/auth/register`
 };

@@ -40,8 +40,11 @@ class Details extends Component {
                 social: {},
                 address: {},
                 features: {},
-                menu: []
+                menu: [],
+                images: [],
+                restaurant_type: []
             },
+            sliderImages: [],
             reviews: [],
             loading: false,
             showRatingModal: false,
@@ -128,7 +131,20 @@ class Details extends Component {
         try {
             const response = await axios.get(api.restaurantDetails, { params });
             console.log(response.data.data);
-            this.setState({ loading: false, data: response.data.data });
+
+            // parse the image list for image gallery
+            const imageList = response.data.data.images;
+            const sliderImages = [];
+            
+            for (let img of imageList) {
+                const imageObj = {
+                    original: img,
+                    thumbnail: img
+                }
+                sliderImages.push(imageObj);
+            }
+
+            this.setState({ loading: false, data: response.data.data, sliderImages });
         } catch (e) {
             console.log(e);
             this.setState({ loading: false });
@@ -616,6 +632,7 @@ class Details extends Component {
                                 </div>
 
                                 <div className={styles.medium}>
+                                    <span style={{ display: 'block', marginBottom: 20, textTransform: 'capitalize' }}>Type: {data.restaurant_type.join(', ')}</span>
                                     <FeatureLabel
                                         label='Air Conditioned'
                                         feature={data.features.ac}
@@ -710,7 +727,7 @@ class Details extends Component {
                                 <br />
                             </div>
                             <ImageGallery
-                                items={this.images}
+                                items={this.state.sliderImages}
                                 additionalClass={styles.imageGallery}
                                 lazyLoad={false}
                                 showBullets
